@@ -37,8 +37,8 @@
     FaCheck,
   } from "react-icons/fa";
 
-  const PRIMARY_RED = "#c21f27";
-  const PRIMARY_BLUE = "#304f83";
+  export const PRIMARY_RED = "#c21f27";
+  export const PRIMARY_BLUE = "#304f83";
 
   const COUNTRIES = [
     "Aland Islands", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica",
