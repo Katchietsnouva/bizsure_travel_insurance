@@ -745,7 +745,7 @@
                       <button
                         type="submit"
                         disabled={loading || !formData.mpesaNumber}
-                        className="w-full py-5 rounded-2xl text-white font-bold text-xl flex justify-center items-center gap-3 disabled:opacity-60"
+                        className="ml-10 w-full py-3 md:py-5 rounded-xl md:rounded-2xl text-white font-bold text-base md:text-xl flex justify-center items-center gap-3 disabled:opacity-60"
                         style={{ backgroundColor: PRIMARY_BLUE }}
                       >
                         {loading ? "Processing Payment..." : "Pay Now"} <FaArrowRight />
