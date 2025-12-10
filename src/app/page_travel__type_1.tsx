@@ -238,287 +238,6 @@
             </section>
           );
 
-
-                case 3:
-                  return (
-                    <section className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <FaUsers className="text-red-600" />
-                        How many people are traveling?
-                      </h2>
-                      <div className="grid md:grid-cols-3 gap-6">
-                        <div className="space-y-2 text-center">
-                          <label className="text-sm font-semibold text-gray-700">Adults (18-75 yrs)</label>
-                          <input
-                            type="number"
-                            min="1"
-                            value={formData.adults}
-                            onChange={(e) => updateFormData("adults", parseInt(e.target.value) || 0)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                          />
-                        </div>
-                        <div className="space-y-2 text-center">
-                          <label className="text-sm font-semibold text-gray-700">Kids (0-17 yrs)</label>
-                          <input
-                            type="number"
-                            min="0"
-                            value={formData.kids}
-                            onChange={(e) => updateFormData("kids", parseInt(e.target.value) || 0)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                          />
-                        </div>
-                        <div className="space-y-2 text-center">
-                          <label className="text-sm font-semibold text-gray-700">Seniors (76-85 yrs)</label>
-                          <input
-                            type="number"
-                            min="0"
-                            value={formData.seniors}
-                            onChange={(e) => updateFormData("seniors", parseInt(e.target.value) || 0)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                          />
-                        </div>
-                      </div>
-                    </section>
-                  );
-                case 4:
-                  return (
-                    <section className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <FaGlobe className="text-blue-600" />
-                        Tell us about your trip, Mr {formData.firstName}
-                      </h2>
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">From</label>
-                          <div className="relative">
-                            <FaPlaneDeparture className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              value={formData.fromCountry}
-                              disabled
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-100"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">To (Country of Destination)</label>
-                          <div className="relative">
-                            <FaGlobe className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <select
-                              value={formData.toCountry}
-                              onChange={(e) => updateFormData("toCountry", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            >
-                              <option value="">Select Country</option>
-                              {COUNTRIES.map((country) => (
-                                <option key={country} value={country}>{country}</option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">Departure Date</label>
-                          <div className="relative">
-                            <FaCalendarAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              type="date"
-                              value={formData.departureDate}
-                              onChange={(e) => updateFormData("departureDate", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">Return Date</label>
-                          <div className="relative">
-                            <FaCalendarAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              type="date"
-                              value={formData.returnDate}
-                              onChange={(e) => updateFormData("returnDate", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2 md:col-span-2">
-                          <label className="text-sm font-semibold text-gray-700">Reason for Travel</label>
-                          <select
-                            value={formData.reason}
-                            onChange={(e) => updateFormData("reason", e.target.value)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                          >
-                            <option value="Holiday">Holiday</option>
-                            <option value="Study">Study</option>
-                            <option value="Business">Business</option>
-                          </select>
-                        </div>
-                      </div>
-                    </section>
-                  );
-                case 5:
-                  const plans: Plan[] = [
-                    {
-                      name: "Holiday",
-                      applies: "Worldwide",
-                      medical: "USD 200,000 (Emergency Only)",
-                      baggage: "USD 1,000 (Single item 25%)",
-                      liability: "USD 100,000 (Excess $200)",
-                      death: "USD 10,000",
-                      cancellation: "USD 1,500 (Excess $150)",
-                      price: "KSH 7,432",
-                    },
-                    {
-                      name: "Senior",
-                      applies: "Elder citizens",
-                      medical: "USD 100,000 (Emergency Only)",
-                      baggage: "USD 1,000 (Single item 25%)",
-                      liability: "USD 75,000 (Excess $200)",
-                      death: "USD 5,000",
-                      cancellation: "USD 1,000 (Excess $150)",
-                      price: "KSH 14,741",
-                    },
-                  ];
-                  return (
-                    <section className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <FaShieldAlt className="text-red-600" />
-                        Here are plans that best suit you
-                      </h2>
-                      <div className="grid md:grid-cols-2 gap-6">
-                        {plans.map((plan) => (
-                          <div
-                            key={plan.name}
-                            onClick={() => updateFormData("selectedPlan", plan)}
-                            className={`cursor-pointer p-6 rounded-xl border-2 transition-all ${
-                              formData.selectedPlan?.name === plan.name ? "border-red-500 bg-red-50" : "border-gray-200"
-                            }`}
-                          >
-                            <h3 className="font-bold text-lg">{plan.name}</h3>
-                            <p className="text-sm text-gray-600">Applies to {plan.applies}</p>
-                            <ul className="mt-4 space-y-2 text-sm">
-                              <li>Medical Expenses: {plan.medical}</li>
-                              <li>Baggage: {plan.baggage}</li>
-                              <li>Personal Liability: {plan.liability}</li>
-                              <li>Accidental Death: {plan.death}</li>
-                              <li>Journey Cancellation: {plan.cancellation}</li>
-                            </ul>
-                            <p className="mt-4 font-bold text-red-600">{plan.price}</p>
-                            {formData.selectedPlan?.name === plan.name && <FaCheckCircle className="text-red-500 mt-2" />}
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  );
-                case 6:
-                  return (
-                    <section className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <FaInfoCircle className="text-blue-600" />
-                        Tell us more about yourself, Mr {formData.firstName}
-                      </h2>
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">Date of Birth</label>
-                          <div className="relative">
-                            <FaBirthdayCake className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              value={formData.dob}
-                              onChange={(e) => updateFormData("dob", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">ID Number</label>
-                          <div className="relative">
-                            <FaUserTie className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              value={formData.idNumber}
-                              onChange={(e) => updateFormData("idNumber", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">Passport Number</label>
-                          <div className="relative">
-                            <FaPassport className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              value={formData.passport}
-                              onChange={(e) => updateFormData("passport", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-semibold text-gray-700">Nationality</label>
-                          <div className="relative">
-                            <FaFlag className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-                            <input
-                              value={formData.nationality}
-                              onChange={(e) => updateFormData("nationality", e.target.value)}
-                              className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 outline-none"
-                            />
-                          </div>
-                        </div>
-                        <div className="space-y-2 md:col-span-2">
-                          <label className="text-sm font-semibold text-gray-700">Is this your country of residence?</label>
-                          <div className="flex gap-4">
-                            {["Yes", "No"].map((res) => (
-                              <div
-                                key={res}
-                                onClick={() => updateFormData("residence", res)}
-                                className={`cursor-pointer px-6 py-3 rounded-xl border-2 ${formData.residence === res ? "border-red-500 bg-red-50" : "border-gray-200"}`}
-                              >
-                                {res}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  );
-                case 7:
-                  return (
-                    <section className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
-                        <FaCheck className="text-red-600" />
-                        Confirm the details below
-                      </h2>
-                      <div className="bg-gray-50 p-6 rounded-xl space-y-4">
-                        <div>
-                          <h3 className="font-bold">Traveler Details</h3>
-                          <p>Full Name: Mr {formData.firstName} {formData.otherNames}</p>
-                          <p>Phone Number: {formData.phone}</p>
-                          <p>Email: {formData.email}</p>
-                          <p>Date of Birth: {formData.dob}</p>
-                        </div>
-                        <div>
-                          <h3 className="font-bold">Trip Details</h3>
-                          <p>From: {formData.fromCountry}</p>
-                          <p>To: {formData.toCountry}</p>
-                          <p>Departure: {formData.departureDate}</p>
-                          <p>Return: {formData.returnDate}</p>
-                          <p>Reason: {formData.reason}</p>
-                        </div>
-                        <div>
-                          <h3 className="font-bold">Plan Selected</h3>
-                          <p>{formData.selectedPlan?.name} - {formData.selectedPlan?.price}</p>
-                        </div>
-                        <div>
-                          <h3 className="font-bold">Identification</h3>
-                          <p>ID: {formData.idNumber}</p>
-                          <p>Passport: {formData.passport}</p>
-                          <p>Nationality: {formData.nationality}</p>
-                          <p>Residence: {formData.residence}</p>
-                        </div>
-                      </div>
-                      <button className="w-full py-3 bg-blue-600 text-white rounded-xl">Add a Traveler</button>
-                      <div className="flex items-center gap-2">
-                        <input type="checkbox" id="terms" />
-                        <label htmlFor="terms" className="text-sm">I have understood and agreed to the Terms & Conditions</label>
-                      </div>
-                    </section>
-                  );
         case 2:
           return (
             <section className="space-y-6">
@@ -684,34 +403,15 @@
           <div className="absolute bottom-0 left-0 w-96 h-96 md:w-[600px] md:h-[600px] bg-blue-100 rounded-full blur-3xl opacity-30 translate-y-1/2 -translate-x-1/2"></div>
         </div>
 
-        <div className="relative  px-4 py-12 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            
-
-            <div className="  bg-white p-8 rounded-3xl shadow-2xl">
-                <div className="flex flex-row items-center justify-between">
-                    <div>
-                        <img
-                            src="/bizsure_logo.png"
-                            alt="QR code to share this travel insurance form"
-                            className=" h-28 mx-auto rounded-lg"
-                        />
-                    </div> 
-                    <div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold">
-                            Get Your <span style={{ color: PRIMARY_RED }}>Travel Insurance</span> Today
-                        </h1>
-                        <p className="text-xl text-gray-600 mt-4">Safe travels start here. Customize your plan in minutes.</p>
-                    </div>
-                    <div>
-                      {/* i added tis empty stuff so as to add some space btn 2nd and marin  */}
-                    </div>
-                </div> 
-            </div> 
+            <div className="inline-block bg-white p-8 rounded-3xl shadow-2xl">
+              <h1 className="text-4xl md:text-6xl font-extrabold">
+                Get Your <span style={{ color: PRIMARY_RED }}>Travel Insurance</span> Today
+              </h1>
+              <p className="text-xl text-gray-600 mt-4">Safe travels start here. Customize your plan in minutes.</p>
+            </div>
           </div>
- 
- 
-
 
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Main Form */}
@@ -760,7 +460,7 @@
             <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-8">
               {/* Why Choose Us */}
               <div className="bg-white rounded-3xl shadow-lg p-8 border">
-                {/* <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <FaShieldAlt style={{ color: PRIMARY_RED }} />
                   Why Choose Us
                 </h3>
@@ -778,30 +478,8 @@
                       </div>
                     </li>
                   ))}
-                </ul> */}
-                {/* <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-8"> */}
-                              <h3 className="text-lg font-extrabold text-gray-900 mb-6 flex items-center gap-2">
-                                <FaShieldAlt style={{ color: PRIMARY_RED }} />
-                                Why Choose Us
-                              </h3>
-                              <ul className="space-y-4">
-                                {[
-                                  { icon: "✈️", text: "Worldwide Coverage", sub: "Protect anywhere" },
-                                  { icon: "⚕️", text: "Medical Emergency", sub: "Up to USD 200,000" },
-                                  { icon: "🛡️", text: "Personal Liability", sub: "Peace of mind" },
-                                  { icon: "💼", text: "Baggage Protection", sub: "Cover your belongings" },
-                                ].map((item, i) => (
-                                  <li key={i} className="flex gap-4 items-start">
-                                    <span className="flex-shrink-0 w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-lg">{item.icon}</span>
-                                    <div>
-                                      <p className="font-bold text-gray-800 text-sm">{item.text}</p>
-                                      <p className="text-xs text-gray-500">{item.sub}</p>
-                                    </div>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-              {/* </div> */}
+                </ul>
+              </div>
 
               {/* QR + Share */}
               <div className="bg-gradient-to-br from-zinc-900 to-slate-800 rounded-2xl p-6 text-white shadow-2xl">
