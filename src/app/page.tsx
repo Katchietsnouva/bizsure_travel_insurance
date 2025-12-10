@@ -825,7 +825,7 @@
 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between bg-white/10 backdrop-blur-sm border border-white/10 p-3 rounded-lg">
-                    <span className="text-sm truncate flex-1 mr-3">
+                    <span className="text-sm truncate max-w-[50vw] md:max-w-[80vw] flex-1 mr-2">
                       {currentUrl || "Loading link..."}
                     </span>
                     {currentUrl && (

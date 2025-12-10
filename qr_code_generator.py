@@ -1,6 +1,6 @@
 import qrcode
 
-url = "https://book-your-insurance-cloud-demo.vercel.app/"
+url = "https://bizsure-travel-insurance.vercel.app/"
 
 img = qrcode.make(url)
 img.save("qr_code.png")
