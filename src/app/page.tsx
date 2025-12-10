@@ -688,20 +688,20 @@
           <div className="text-center mb-16">
             
 
-            <div className="  bg-white p-8 rounded-3xl shadow-2xl">
-                <div className="flex flex-row items-center justify-between">
-                    <div>
+            <div className="  bg-white p-4 md:p-8 rounded-3xl shadow-2xl">
+                <div className="flex flex-col md:flex-row items-center justify-between">
+                    <div className="flex start-0">
                         <img
                             src="/bizsure_logo.png"
                             alt="QR code to share this travel insurance form"
-                            className=" h-28 mx-auto rounded-lg"
+                            className="h-16 md:h-28 mx-auto rounded-lg"
                         />
                     </div> 
                     <div>
-                        <h1 className="text-4xl md:text-6xl font-extrabold">
+                        <h1 className="text-2xl md:text-4xl lg:text-6xl font-extrabold">
                             Get Your <span style={{ color: PRIMARY_RED }}>Travel Insurance</span> Today
                         </h1>
-                        <p className="text-xl text-gray-600 mt-4">Safe travels start here. Customize your plan in minutes.</p>
+                        <p className="text-base md:text-xl text-gray-600 mt-4">Safe travels start here. Customize your plan in minutes.</p>
                     </div>
                     <div>
                       {/* i added tis empty stuff so as to add some space btn 2nd and marin  */}
